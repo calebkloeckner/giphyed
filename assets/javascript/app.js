@@ -24,8 +24,6 @@ function gifButtons () {
 gifButtons();
 
 // on click function
-
-
 $(document).on("click", ".butt", ".rating", function(){
     let offset = Math.floor(Math.random() * 75);
     $("#gifShown").empty();
@@ -33,6 +31,8 @@ let gifName = $(this).attr("data-button");
 let queryURL = "https://api.giphy.com/v1/gifs/search?q="+gifName+"&api_key=CBfsLYnfVUUkLX9pPpnoe2oc00Is5g2b&rating=r&sort=relevant&offset="+offset+"&limit=20";
     
 console.log(gifName);
+
+// ajax get method
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -40,6 +40,8 @@ console.log(gifName);
         let results = response.data;
 for (var i = 0; i < results.length; i++) {
        let image =  $("<img>").attr("src", results[i].images.fixed_height_small_still.url);
+       let loopingImage = $("<img>").attr("src", results[i].images.looping.url);
+       let playstate = false;
   
 $("#gifShown").append(image);       
 }
@@ -47,20 +49,26 @@ $("#gifShown").append(image);
     console.log(results[0].images);
     });
 
-$(".btn-default").on("click", function(event){
-    event.preventDefault();
-    var newButton = $("#newGifButtons").val();
-    gifs.push(newButton);
-    gifButtons();
-    $("#inputNew").children("input").val("");
+// $(".btn-default").on("click", function(event){
+//     event.preventDefault();
+//     var newButton = $("#newGifButtons").val();
+//     gifs.push(newButton);
+//     gifButtons();
+//     $("#inputNew").children("input").val("");
 
 });
+
+$("#gifShown").on("click", function(event) {
+    if (!playstate) {
+        
+    }
+})
 
 }); 
 
 
 
-});
+
 
 
 
