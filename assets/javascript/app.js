@@ -39,11 +39,16 @@ console.log(gifName);
 }).done(function(response){
         let results = response.data;
 for (var i = 0; i < results.length; i++) {
-       let image =  $("<img>").attr("src", results[i].images.fixed_height_small_still.url);
-       let loopingImage = $("<img>").attr("src", results[i].images.looping.url);
-       let playstate = false;
-  
-$("#gifShown").append(image);       
+       let still = results[i].images.fixed_height_small_still.url;
+       let looping = results[i].images.original.url;
+    
+      let giphyImage = $("<img>").attr("data-still", still);
+      giphyImage.attr("data-animate", looping);
+      giphyImage.attr("data-state", "still");
+      giphyImage.attr("src", still);
+      giphyImage.addClass("gif");
+
+$("#gifShown").append(giphyImage);       
 }
 
     console.log(results[0].images);
@@ -57,9 +62,10 @@ $("#gifShown").append(image);
 //     $("#inputNew").children("input").val("");
 
 });
-
+// play looping
 $("#gifShown").on("click", function(event) {
-    if (!playstate) {
+    if ("<img>" === image) {
+        let newSrc = loopingImage;
         
     }
 })
