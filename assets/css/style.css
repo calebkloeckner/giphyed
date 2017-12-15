@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+}
+
+button {
+    background-color: blue; 
+}
+
+#gifInput {
+    margin: 3%; 
+}
+
+#newGifButtons {
+    /* width: 40%; */
+}
+
+#gifShown {
+    margin: 3%;
+}
+
+img {
+    margin: 3%;
+}
