@@ -1,9 +1,9 @@
-
-
 h1 {
     text-align: center;
 }
-
+#ps {
+    font-size: 15px;
+}
 button {
     background-color: rgb(255, 72, 0);
     margin: 3%;
@@ -47,6 +47,3 @@ img {
     
 }
 
-body {
-    background-color: green;
-}
