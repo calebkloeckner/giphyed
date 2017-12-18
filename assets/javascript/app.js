@@ -18,6 +18,7 @@ function gifButtons () {
             $("#gifButtons").attr("giphy", gifs[i]);
         console.log(gifs[i]);
         
+        
      }
     }
 
@@ -85,13 +86,9 @@ $("#gifSubmit").on("click", function(event) {
     event.preventDefault();
     let newButton = $("#newGifButtons").val();
     gifs.push(newButton);
-    for(let i = 0; i < gifs; i++) {
-        console.log(gifs[i]);
-    }
-    $("#gifButtons").append("").val("");
- 
-    console.log(newButton);
-
+    $('#newGifButtons').val(""); 
+    
+  gifButtons();
 
 });
 

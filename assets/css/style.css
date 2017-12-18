@@ -1,9 +1,11 @@
+
+
 h1 {
     text-align: center;
 }
 
 button {
-    background-color: blue;
+    background-color: rgb(255, 72, 0);
     margin: 3%;
     
 }
@@ -45,3 +47,6 @@ img {
     
 }
 
+body {
+    background-color: green;
+}
