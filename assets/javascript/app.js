@@ -22,7 +22,7 @@ function gifButtons () {
     }
 
 gifButtons();
-
+// since we are dynamicaly generating buttons, this function needs to be binded to the document at all times as we are appending new buttons
 // on click function
 $(document).on("click", ".butt", ".rating", function(){
     let offset = Math.floor(Math.random() * 75);
@@ -41,34 +41,57 @@ console.log(gifName);
 for (var i = 0; i < results.length; i++) {
        let still = results[i].images.fixed_height_small_still.url;
        let looping = results[i].images.original.url;
-    
+// assigning state of image 
+    let gifDiv = $("<div class='gifDisplay'>");
+      let rating = $("<div>").html(results[i].rating);
       let giphyImage = $("<img>").attr("data-still", still);
       giphyImage.attr("data-animate", looping);
       giphyImage.attr("data-state", "still");
       giphyImage.attr("src", still);
       giphyImage.addClass("gif");
-
-$("#gifShown").append(giphyImage);       
+gifDiv.append(giphyImage, rating);
+$("#gifShown").append(gifDiv);       
 }
 
-    console.log(results[0].images);
+    console.log(results[0]);
     });
 
-// $(".btn-default").on("click", function(event){
-//     event.preventDefault();
-//     var newButton = $("#newGifButtons").val();
-//     gifs.push(newButton);
-//     gifButtons();
-//     $("#inputNew").children("input").val("");
+
 
 });
-// play looping
-$("#gifShown").on("click", function(event) {
-    if ("<img>" === image) {
-        let newSrc = loopingImage;
-        
+
+// this function handles the switch still and animate gifs
+$(document).on("click", ".gif", function(event) {
+    console.log("working");
+// grab value of the state of loaded image
+    let state = $(this).attr('data-state');
+    console.log(state);
+// evaluating if image is still or looping
+    if (state === "still") {
+        let newSrc = $(this).attr("data-animate");
+        $(this).attr("src", newSrc);
+        $(this).attr("data-state", "animate");
+    } else {
+        let newSrc = $(this).attr("data-still");
+        $(this).attr("src", newSrc);
+        $(this).attr("data-state", "still");
     }
-})
+        
+    
+});
+
+// 
+$("#gifSubmit").on("click", function(event) {
+    event.preventDefault();
+    let newButton = $("#newGifButtons").val();
+    gifs.push(".butt");
+    $("#gifButtons").append("").val("");
+ 
+    console.log(newButton);
+
+
+});
+
 
 }); 
 

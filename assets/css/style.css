@@ -3,7 +3,20 @@ h1 {
 }
 
 button {
-    background-color: blue; 
+    background-color: blue;
+    margin: 3%;
+    
+}
+.butt {
+    color: white;
+    font-family: 'Acme', sans-serif;
+    font-size: 20px;
+    height: 50px;
+    margin: .5%;
+    opacity: .75;
+}
+.butt:hover {
+    opacity: 1;
 }
 
 #gifInput {
@@ -16,8 +29,19 @@ button {
 
 #gifShown {
     margin: 3%;
+    widows: 200px;
+    height: 200px;
 }
 
 img {
     margin: 3%;
+    width: 200px;
+    height: 150px;
 }
+
+.gifDisplay {
+    width: 30%;
+    float: left;
+    
+}
+
