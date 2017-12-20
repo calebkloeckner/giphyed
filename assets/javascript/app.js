@@ -3,7 +3,7 @@ $(document).ready(function(){
    
 
 // Variables
-let gifs = ["batman", "dancing", "girls", "cars", "football", "the office", "laughing", "sharks", "bloopers", "how i met your mother", "high five" ];
+let gifs = ["batman", "friends", "dancing", "girls", "cars", "football", "the office", "laughing", "sharks", "bloopers", "how i met your mother", "high five" ];
 
 // functions -----------------------------------
 // buttons for movies
@@ -13,14 +13,11 @@ function gifButtons () {
     for (var i = 0; i < gifs.length; i++) {
         $("#gifButtons").append(`
             <button class="butt" data-button="${gifs[i]}">${gifs[i]}</button>   
-            `);
-            
-            $("#gifButtons").attr("giphy", gifs[i]);
+            `);            
+        $("#gifButtons").attr("giphy", gifs[i]);
         console.log(gifs[i]);
-        
-        
-     }
     }
+}
 
 gifButtons();
 // since we are dynamicaly generating buttons, this function needs to be binded to the document at all times as we are appending new buttons
@@ -65,7 +62,7 @@ $("#gifShown").append(gifDiv);
 $(document).on("click", ".gif", function(event) {
     console.log("working");
 // grab value of the state of loaded image
-    let state = $(this).attr('data-state');
+let state = $(this).attr('data-state');
     console.log(state);
 // evaluating if image is still or looping
     if (state === "still") {
@@ -77,17 +74,14 @@ $(document).on("click", ".gif", function(event) {
         $(this).attr("src", newSrc);
         $(this).attr("data-state", "still");
     }
-        
-    
 });
 
-// 
+// add new gif based on what is typed
 $("#gifSubmit").on("click", function(event) {
     event.preventDefault();
     let newButton = $("#newGifButtons").val();
     gifs.push(newButton);
-    $('#newGifButtons').val(""); 
-    
+    $('#newGifButtons').val("");     
   gifButtons();
 
 });
